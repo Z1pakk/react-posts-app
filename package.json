@@ -1,8 +1,8 @@
 {
-  "homepage": "http://z1pakk.github.io/react-posts-app",
   "name": "react-posts-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://z1pakk.github.io/react-posts-app",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
@@ -16,8 +16,6 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

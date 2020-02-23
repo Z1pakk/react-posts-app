@@ -1,7 +1,26 @@
 language: node_js
 
 node_js:
-- node
 - 'lts/*'
 
-cache: npm
+cache: yarn
+include:
+    - stage: test
+      script:
+        - echo 'Deploy!!'
+        - echo 'Installing Deps!'
+        - yarn
+        - echo 'Testing!'
+        - yarn test
+    - stage: deploy
+      script:
+        - npm install -g gh-pages
+        - yarn build
+        - npm run deploy
+stages:
+    - name: test
+    # require the type to be a PR
+    if: type = pull_request
+    - name: deploy
+    # require the type to be push to master
+    if: type = push AND branch = deploy

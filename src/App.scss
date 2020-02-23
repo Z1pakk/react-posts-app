@@ -1,0 +1,106 @@
+$wrapper-background: #edf2f6;
+
+$header-background: #fff;
+
+$nav-link-color: #515365;
+$nav-link-focus-color: #ff5e3a;
+$nav-link-weight: 700;
+$nav-link-font-size: 13px;
+
+$profile-header-bg-height: 300px;
+
+$black-cover-opacity: 0.5;
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: $wrapper-background;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  background: $header-background;
+  &__body {
+    display: flex;
+    align-items: center;
+  }
+  
+  &__nav {
+    justify-content: flex-end;
+    flex: 1;
+  }
+  
+}
+
+.logo {
+  flex: 1;
+  &__icon {
+    max-height: 60px;
+  }
+}
+
+.menu {
+  display: flex;
+  &__item {
+    padding: 1rem;
+  }
+  &__link {
+    color: $nav-link-color;
+    font-weight: $nav-link-weight;
+    font-size: $nav-link-font-size;
+    &:hover {
+      color: $nav-link-focus-color;
+    }
+  }
+}
+
+.img-cover {
+  background-size: cover;
+}
+
+.header-cover {
+  position: relative;
+  background-position: center;
+}
+
+.black-cover{
+  z-index: 1;
+  &::after {
+    content: "";
+    z-index: 2;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    clear: both;
+    opacity: $black-cover-opacity;
+  }
+}
+
+.my-profile {
+  &__header {
+    position: relative;
+  }
+  &__bg {
+    height: $profile-header-bg-height;
+    background-image: url(https://olympus.crumina.net/wp-content/uploads/buddypress/members/1/cover-image/5c220b12b44cd-bp-cover-image.jpg);
+  }
+  &__info {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+  }
+}
+

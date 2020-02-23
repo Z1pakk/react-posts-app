@@ -7,19 +7,29 @@ $nav-link-focus-color: #ff5e3a;
 $nav-link-weight: 700;
 $nav-link-font-size: 13px;
 
-$profile-header-bg-height: 300px;
+$my-profile-bg-height: 300px;
+$my-profile-pdl: 190px;
 
 $black-cover-opacity: 0.5;
+
+$avatar-border-color: #fff;
+
+@mixin set-sides-value($value) {
+  top: $value;
+  left: $value;
+  right: $value;
+  bottom: $value;
+}
+
+a {
+  text-decoration: none;
+}
 
 .app-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background: $wrapper-background;
-}
-
-a {
-  text-decoration: none;
 }
 
 .container {
@@ -72,6 +82,8 @@ a {
   background-position: center;
 }
 
+
+
 .black-cover{
   z-index: 1;
   &::after {
@@ -79,28 +91,154 @@ a {
     z-index: 2;
     background: #000;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @include set-sides-value(0);
     clear: both;
     opacity: $black-cover-opacity;
   }
 }
 
 .my-profile {
-  &__header {
+  &__upper-header {
     position: relative;
   }
+  &__lower-header {
+    background: $header-background;
+  }
   &__bg {
-    height: $profile-header-bg-height;
+    height: $my-profile-bg-height;
     background-image: url(https://olympus.crumina.net/wp-content/uploads/buddypress/members/1/cover-image/5c220b12b44cd-bp-cover-image.jpg);
   }
   &__info {
+    line-height: 1.5;
     position: absolute;
     z-index: 3;
     bottom: 0;
     left: 0;
+    right: 0;
+  }
+  &__image {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    margin-bottom: -75px;
+    border-radius: 100%;
+  }
+  &__avatar {
+    width: 160px;
+    height: 160px;
+  }
+  &__meta {
+    display: flex;
+    margin-left: $my-profile-pdl;
+  }
+  &__location {
+    margin:0px 0px 20px 0 ;
+  }
+  &__rating {
+    line-height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: 75px;
+  }
+  &__social {
+    display: flex;
+  }
+  &__links {
+    padding-left: $my-profile-pdl !important;
+  }
+  &__stats {
+    padding-right: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
+
+.social {
+  display: flex;
+  padding: 30px 0px;
+  align-items: center;
+  &__link {
+    color: #fff;
+    border-radius: 2px;
+    padding: 9px 10px;
+    transition: all .2s ease;
+    margin-right: 15px;
+  }
+  &__link:hover {
+    opacity: .9;
+  }
+  &__link_facebook {
+    background-color: #2f5b9c;
+  }
+  &__link_twitter {
+    background-color: #37bff1;
+  }
+  &__link_instagram {
+    background-color: #f74881;
+  }
+}
+
+.count-info {
+  padding: 0px 20px;
+  
+}
+.s-number {
+  color: #515365;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.s-info {
+  color: #888da8;
+  font-size: 11px;
+  font-weight: 500;
+  margin: 0px;
+}
+
+.separator {
+  margin: 0px 5px;
+}
+
+.small-text {
+  font-size: 10px;
+  font-weight: 300;
+}
+.stars {
+  color: #ffdc1b !important;
+}
+
+.flex-left {
+  flex:1;
+  justify-content: flex-start;
+}
+.flex-right {
+  flex:1;
+  justify-content: flex-end;
+}
+
+.f-icon {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.white-text {
+  color: #fff;
+  font-weight: 500;
+}
+
+.avatar {
+  background:#fff;
+  border: 6px $avatar-border-color solid;
+  border-radius: 100%;
+}
+
+
 

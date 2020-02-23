@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faStar, faStarHalfAlt, faf } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 const App = () => {

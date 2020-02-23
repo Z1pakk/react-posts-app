@@ -5,15 +5,23 @@ node_js:
 - 'lts/*'
 
 cache: yarn
-
-script:
-  - echo 'Build starts!!'
-  - echo 'Installing Deps!'
-  - yarn
-  - echo 'Testing!'
-  - npm run test:prod
-install:
-  - npm install -g gh-pages
-after_success:
-  - yarn build
-  - npm run deploy
+include:
+    - stage: test
+      script:
+        - echo 'Deploy!!'
+        - echo 'Installing Deps!'
+        - yarn
+        - echo 'Testing!'
+        - yarn test
+    - stage: deploy
+      script:
+        - npm install -g gh-pages
+        - yarn build
+        - npm run deploy
+stages:
+    - name: test
+    # require the type to be a PR
+    if: type = pull_request
+    - name: deploy
+    # require the type to be push to master
+    if: type = push AND branch = master

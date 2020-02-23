@@ -3,18 +3,16 @@ language: node_js
 node_js:
 - 'lts/*'
 
-cache: yarn
-jobs:
-    include:
-        - stage: test
-          script:
-            - echo 'Deploy!!'
-            - echo 'Installing Deps!'
-            - yarn
-            - echo 'Testing!'
-            - yarn test
-        - stage: deploy
-          script:
-            - npm install gh-pages
-            - npm run build
-            - npm run deploy
+cache:
+    directories:
+      - node_modules
+script:
+  - npm test
+  - npm run build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: build
+  on:
+    branch: master

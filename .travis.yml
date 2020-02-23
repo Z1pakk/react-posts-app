@@ -7,7 +7,9 @@ cache:
     directories:
       - node_modules
 script:
-  - npm test
+  - unset CI
+  - npm install
+  - npm run tests
   - npm run build
 deploy:
   provider: pages

@@ -16,5 +16,5 @@ jobs:
         - stage: deploy
           script:
             - npm install -g gh-pages
-            - yarn build
+            - npm run build
             - npm run deploy

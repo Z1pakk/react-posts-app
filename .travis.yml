@@ -1,0 +1,19 @@
+language: node_js
+
+node_js:
+- node
+- 'lts/*'
+
+cache: yarn
+
+script:
+  - echo 'Build starts!!'
+  - echo 'Installing Deps!'
+  - yarn
+  - echo 'Testing!'
+  - npm run test:prod
+install:
+  - npm install -g gh-pages
+after_success:
+  - yarn build
+  - npm run deploy
